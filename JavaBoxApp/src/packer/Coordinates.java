@@ -35,7 +35,9 @@ public class Coordinates {
         double dist = Math.abs(xDiff) + Math.abs(yDiff);
         return dist;
     }
-    
+    /**
+    * Calculates the distances between two coordinates given
+    **/
     public double companyDistanceTo(Coordinates other) {
         double xDiff1 = other.getX() - this.getX();
         double yDiff1 = other.getY() - this.getY();
@@ -43,7 +45,7 @@ public class Coordinates {
         double xDiff2 = other.getX() - this.getX();
         double yDiff2 = other.getY() - this.getY();
         double dist2 = Math.abs(xDiff2) + Math.abs(yDiff2);
-        return (dist1 + dist2)/2;
+        return (dist1 + dist2)/2 + 1;
     }
 
 }

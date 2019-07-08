@@ -25,7 +25,11 @@ public class Customer {
     public String getName() {
         return name;
     }
-
+/**
+ * 
+ * @param d
+ * @return 
+ */
     public Address getClosestAddressTo(Depot d) {
         double bestDistance = Double.MAX_VALUE;
         Address bestAddress = null;
@@ -33,6 +37,7 @@ public class Customer {
             double distance = a.getCoordinates().companyDistanceTo(d.getCoordinates());
             if (distance < bestDistance) {
                 bestAddress = a;
+                bestDistance = distance;
             }
         }
         return bestAddress;

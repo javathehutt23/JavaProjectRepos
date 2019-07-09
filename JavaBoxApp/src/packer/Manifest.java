@@ -41,7 +41,7 @@ public class Manifest {
         if (quantities.containsKey(p) && quantities.get(p) > 0) {
             quantities.put(p,quantities.get(p)-1);
         }
-        if (quantities.get(p) == 0) {
+        if (quantities.get(p) == null) {
             quantities.remove(p);
         }
         if (quantities.containsKey(p)) {
@@ -54,6 +54,7 @@ public class Manifest {
         for (Product p : quantities.keySet()) {
             weight = quantities.get(p) * p.getWeight();
         }
+        System.out.println(weight);
         return weight;
     }
     
@@ -93,9 +94,23 @@ public class Manifest {
         }
         return false;
     }
+    
+    public boolean hasHazardousItems() {
+        for (Product p : quantities.keySet()) {
+            if (p.isHazardous()) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     double getWeight() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        double a = 0;
+        for (Product p : quantities.keySet()){
+            a = p.getWeight();
+            return a;
+    }
+        return a;
     }
 }
     

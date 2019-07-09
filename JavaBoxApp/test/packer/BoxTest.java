@@ -90,7 +90,7 @@ public class BoxTest {
      */
     @Test
     public void testgetTotalWeight() {
-        System.out.println("getWeight");
+        System.out.println("getTotalWeight");
         assertEquals( 8, testBox1.getTotalWeight(), 0);
         assertEquals( 0, testBox2.getTotalWeight(), 0);
         assertNotSame( 2, testBox2.getTotalWeight());
@@ -134,8 +134,8 @@ public class BoxTest {
     }
     @Test
     public void testisFragile(){
-    System.out.println("Testing if the contents if hazardous in the box...");
-        assertEquals(true, testBox1.isHazardous());
+    System.out.println("Testing if the contents if fragile in the box...");
+        assertEquals(true, testBox1.isFragile());
         assertEquals(true, testBox2.isFragile());
         assertEquals(false, testBox3.isFragile());
         assertEquals(true, testBox4.isFragile());
@@ -152,6 +152,17 @@ public class BoxTest {
         assertEquals(false, testBox4.isHazardous());
         assertNotSame(true, testBox4.isHazardous());
         assertNotSame(false, testBox1.isHazardous());
+
+    }
+    @Test
+    public void testisHeavy() {
+        System.out.println("Testing if the contents if the box is heavy...");
+        assertEquals(false, testBox1.isHeavy());
+        assertEquals(false, testBox2.isHeavy());
+        assertEquals(true, testBox3.isHeavy());
+        assertEquals(true, testBox4.isHeavy());
+        assertNotSame(false, testBox4.isHeavy());
+        assertNotSame(true, testBox1.isHeavy());
 
     }
 

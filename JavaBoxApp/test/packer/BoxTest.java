@@ -52,8 +52,8 @@ public class BoxTest {
     public void TestaddProduct(){
         testBox1.addProduct(testProducta1);
         testBox1.addProduct(testProducta2);
-        //testBox1.addProduct(testProducta3);
-        //testBox1.addProduct(testProductb3);
+        testBox1.addProduct(testProducta3);
+        testBox1.addProduct(testProductb3);
         System.out.println("added a1, a2, a3 & b3 to Box1");
         testBox2.addProduct(testProductb1, 1);
         System.out.println("add 15 of b1 to Box2");
@@ -125,13 +125,12 @@ public class BoxTest {
     @Test
     public void testremainingCapacity() {
         System.out.println("Testing Remaining capacity in Box...");
-        Double A  = testBox1.remainingCapacity();
-        assertEquals("32", testBox1.remainingCapacity());
-        assertEquals("40", testBox2.remainingCapacity());
-        assertNotSame("0", testBox2.remainingCapacity());
-        assertEquals("-4", testBox3.remainingCapacity());
-        assertNotSame("0", testBox3.remainingCapacity());
-        assertEquals("25", testBox4.remainingCapacity());        
+        assertEquals( 12.0, testBox1.remainingCapacity(), 0);
+        assertEquals(20.0, testBox2.remainingCapacity(), 0);
+        assertNotSame(0, testBox2.remainingCapacity());
+        assertEquals(-24, testBox3.remainingCapacity(), 0);
+        assertNotSame(0, testBox3.remainingCapacity());
+        assertEquals(5, testBox4.remainingCapacity(), 0);        
     }
     @Test
     public void testisFragile(){

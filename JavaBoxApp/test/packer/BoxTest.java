@@ -89,14 +89,14 @@ public class BoxTest {
      * Test of getWeight method, of class Box
      */
     @Test
-    public void testgetWeight() {
+    public void testgetTotalWeight() {
         System.out.println("getWeight");
-        assertEquals("8", testBox1.getWeight());
-        assertEquals("0", testBox2.getWeight());
-        assertNotSame("2", testBox2.getWeight());
-        assertEquals("44", testBox3.getWeight());
-        assertNotSame("43", testBox3.getWeight());
-        assertEquals("15", testBox4.getWeight());
+        assertEquals( 8, testBox1.getTotalWeight(), 0);
+        assertEquals( 0, testBox2.getTotalWeight(), 0);
+        assertNotSame( 2, testBox2.getTotalWeight());
+        assertEquals( 44, testBox3.getTotalWeight(), 0);
+        assertNotSame( 43, testBox3.getTotalWeight());
+        assertEquals( 15, testBox4.getTotalWeight(), 0);
     }
  
        /**

@@ -16,21 +16,27 @@ public class Packer {
             if (b == null) {
                 b = new Box(c,d);
             }
-            Product prodToAdd = m.getHeaviestUnder(b.remainingCapacity());
-            if (prodToAdd == null) {
-                packedBoxes.add(b);
-                b = null;
+                Product prodToAdd = m.getHeaviestUnder(b.remainingCapacity());
+                System.out.println(b.remainingCapacity() + " remaining");
+                if (prodToAdd == null) {
+                    packedBoxes.add(b);
+                    b = null;
+                }
+                else {
+                    b.addProduct(prodToAdd);
+                    m.removeProduct(prodToAdd);
+                }  
             }
-            else {
-                b.addProduct(prodToAdd);
-                m.removeProduct(prodToAdd);
-            }  
-        }
-        if (b != null) {
-            packedBoxes.add(b);
-            packedBoxes.add(b);
-        }
+          // if (b != null)
+            if (b != null) {
+                packedBoxes.add(b);
+                packedBoxes.add(b);
+                System.out.println("iugiug");
+            //packedBoxes.add(b);
+            }
         return packedBoxes;
     }
+
+
     
 }

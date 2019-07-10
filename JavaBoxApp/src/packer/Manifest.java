@@ -51,11 +51,13 @@ public class Manifest {
     
     public double getTotalWeight() {
         double weight = 0;
+        double totalWeight = 0;
         for (Product p : quantities.keySet()) {
             weight = quantities.get(p) * p.getWeight();
+            totalWeight += weight;
         }
-        System.out.println(weight);
-        return weight;
+        System.out.println(totalWeight + " totaWeight");
+        return totalWeight;
     }
     
     public Product getHeaviestUnder(double weight) {
@@ -103,7 +105,7 @@ public class Manifest {
         }
         return false;
     }
-
+/*
     double getWeight() {
         double a = 0;
         for (Product p : quantities.keySet()){
@@ -111,7 +113,7 @@ public class Manifest {
             return a;
     }
         return a;
-    }
+    }*/
 }
     
 

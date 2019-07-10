@@ -37,6 +37,8 @@ public class Coordinates {
     }
     /**
     * Calculates the distances between two coordinates given
+     * @param other
+     * @return 
     **/
     public double companyDistanceTo(Coordinates other) {
         double xDiff1 = other.getX() - this.getX();

@@ -7,7 +7,8 @@ import java.util.TreeSet;
 
 /**
  *
- * @author I.M.Bad
+ * @author Harry Furnish
+ * @version 1.0
  */
 public class Manifest {
     
@@ -20,14 +21,21 @@ public class Manifest {
         quantities = new HashMap<>();
         byWeight = new TreeSet<>(new ProductWeightComparator());
     }
-    
+    /**
+     * 
+     * @param p product to be add to manifest
+     */
     public void addProduct(Product p) {
         addProduct(p,1);
     }
-    
+    /**
+     * 
+     * @param p product to be added to manifest
+     * @param quantity number of products to be added to manifest
+     */
     public void addProduct(Product p, int quantity) {
         if (quantities.containsKey(p)) {
-            quantities.put(p,quantities.get(p)*quantity);
+            quantities.put(p,quantities.get(p)+quantity);
         }
         else {
             quantities.put(p,quantity);
@@ -36,7 +44,10 @@ public class Manifest {
             }
         }
     }
-    
+    /**
+     * 
+     * @param p product to be removed from manifest
+     */
     public void removeProduct(Product p) {
         if (quantities.containsKey(p) && quantities.get(p) > 0) {
             quantities.put(p,quantities.get(p)-1);
@@ -44,11 +55,14 @@ public class Manifest {
         if (quantities.get(p) == null) {
             quantities.remove(p);
         }
-        if (quantities.containsKey(p)) {
+        if (quantities.containsKey(p) && quantities.get(p) == 0) {
             byWeight.remove(p);
         }
     }
-    
+    /**
+     * 
+     * @return double total weight of products in manifest
+     */
     public double getTotalWeight() {
         double weight = 0;
         double totalWeight = 0;
@@ -56,10 +70,13 @@ public class Manifest {
             weight = quantities.get(p) * p.getWeight();
             totalWeight += weight;
         }
-        System.out.println(totalWeight + " totaWeight");
         return totalWeight;
     }
-    
+    /**
+     * 
+     * @param weight double weight of product 
+     * @return product weighing less than weight input
+     */
     public Product getHeaviestUnder(double weight) {
         for (Product p : byWeight) {
             if (p.getWeight() <= weight) {
@@ -68,15 +85,25 @@ public class Manifest {
         }
         return null;
     }
-    
+    /**
+     * 
+     * @return boolean is or is not empty
+     */
     public boolean isEmpty() {
         return byWeight.isEmpty();
     }
-    
+    /**
+     * 
+     * @param p product to be searched for in manifest
+     * @return boolean product is or is not in manifest
+     */
     public boolean containsProduct(Product p) {
         return quantities.containsKey(p) && quantities.get(p) > 0;
     }
-    
+    /**
+     * 
+     * @return string manifest contents
+     */
     public String toString() {
         StringBuilder result = new StringBuilder();
         for (Product p : quantities.keySet()) {
@@ -87,7 +114,10 @@ public class Manifest {
         }
         return result.substring(0, result.length()-1);
     }
-    
+    /**
+     * 
+     * @return boolean manifest contains or does not contain fragile products
+     */
     public boolean hasFragileItems() {
         for (Product p : quantities.keySet()) {
             if (p.isFragile()) {
@@ -96,7 +126,10 @@ public class Manifest {
         }
         return false;
     }
-    
+    /**
+     * 
+     * @return boolean manifest contains or does not contain fragile products
+     */
     public boolean hasHazardousItems() {
         for (Product p : quantities.keySet()) {
             if (p.isHazardous()) {

@@ -22,14 +22,14 @@ public class Manifest {
         byWeight = new TreeSet<>(new ProductWeightComparator());
     }
     /**
-     * 
+     * add Product adds product into a manifest
      * @param p product to be add to manifest
      */
     public void addProduct(Product p) {
         addProduct(p,1);
     }
     /**
-     * 
+     * addProduct(product, quantity) adds a product including a nominated quantity into a manifest
      * @param p product to be added to manifest
      * @param quantity number of products to be added to manifest
      */
@@ -45,7 +45,7 @@ public class Manifest {
         }
     }
     /**
-     * 
+     * removeProduct removes a product instance from a manifest
      * @param p product to be removed from manifest
      */
     public void removeProduct(Product p) {
@@ -60,7 +60,7 @@ public class Manifest {
         }
     }
     /**
-     * 
+     * getTotalWeight calculates to the current total weight contained in the manifest
      * @return double total weight of products in manifest
      */
     public double getTotalWeight() {
@@ -73,7 +73,7 @@ public class Manifest {
         return totalWeight;
     }
     /**
-     * 
+     * getHeaviestUnder provides the heaviest product under nominated weight in the current manifest
      * @param weight double weight of product 
      * @return product weighing less than weight input
      */
@@ -86,14 +86,14 @@ public class Manifest {
         return null;
     }
     /**
-     * 
+     * inEmpty confirms if a manifest is empty
      * @return boolean is or is not empty
      */
     public boolean isEmpty() {
         return byWeight.isEmpty();
     }
     /**
-     * 
+     * containsProduct confirms if the manifest contains a nominated product
      * @param p product to be searched for in manifest
      * @return boolean product is or is not in manifest
      */
@@ -101,7 +101,7 @@ public class Manifest {
         return quantities.containsKey(p) && quantities.get(p) > 0;
     }
     /**
-     * 
+     * toString provides a string veriosn of the mainfest content
      * @return string manifest contents
      */
     public String toString() {
@@ -115,7 +115,7 @@ public class Manifest {
         return result.substring(0, result.length()-1);
     }
     /**
-     * 
+     * hasfragileItems confirms whether a manifest contains any fragile products
      * @return boolean manifest contains or does not contain fragile products
      */
     public boolean hasFragileItems() {
@@ -127,7 +127,7 @@ public class Manifest {
         return false;
     }
     /**
-     * 
+     * hasHazardous confirms whether a manifest contains any hazardous products
      * @return boolean manifest contains or does not contain fragile products
      */
     public boolean hasHazardousItems() {

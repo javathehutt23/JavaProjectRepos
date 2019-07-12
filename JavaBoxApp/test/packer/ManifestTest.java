@@ -67,9 +67,9 @@ public class ManifestTest {
         System.out.println("getTotalWeight");
         assertEquals( 9, testManifest1.getTotalWeight(), 0);
         assertEquals( 15, testManifest2.getTotalWeight(), 0);
-        assertNotSame( 14, testManifest2.getTotalWeight());
+        assertNotEquals( 14, testManifest2.getTotalWeight());
         assertEquals( 0, testManifest3.getTotalWeight(), 0);
-        assertNotSame( 1, testManifest3.getTotalWeight());
+        assertNotEquals( 1, testManifest3.getTotalWeight());
     }
 
     /**
@@ -80,6 +80,7 @@ public class ManifestTest {
         System.out.println("getHeaviestUnder");
         double weight = 10;
         assertEquals( testProducta4, testManifest1.getHeaviestUnder(weight));
+        assertNotEquals(testProducta2, testManifest1.getHeaviestUnder(weight));
         assertEquals( testProducta3, testManifest2.getHeaviestUnder(weight));
         assertEquals( testProducta1, testManifest3.getHeaviestUnder(weight));
     }
@@ -90,9 +91,9 @@ public class ManifestTest {
     @Test
     public void testIsEmpty() {
         System.out.println("isEmpty");
+        assertEquals(false, testManifest3.isEmpty());
         testManifest3.removeProduct(testProducta1);
         assertEquals(true, testManifest3.isEmpty());
-        assertEquals(false, testManifest1.isEmpty());
     }
 
     /**
@@ -114,7 +115,7 @@ public class ManifestTest {
     public void testToString() {
         System.out.println("toString");
         String a = testManifest1.toString();
-        System.out.println(a + " printed");
+        assertEquals(a, testManifest1.toString());
     }
 
     /**
@@ -126,9 +127,17 @@ public class ManifestTest {
         assertEquals(true, testManifest1.hasFragileItems());
         assertEquals(false, testManifest2.hasFragileItems());
         assertEquals(true, testManifest3.hasFragileItems());
-        assertNotSame(false, testManifest1.hasFragileItems());
+        assertNotEquals(false, testManifest1.hasFragileItems());
     }
 
+    @Test
+    public void testHasHazardousItem(){
+        System.out.println("hasHazardousItems");
+        assertEquals(true, testManifest1.hasHazardousItems());
+        assertEquals(false, testManifest2.hasHazardousItems());
+        assertEquals(true, testManifest3.hasHazardousItems());
+        assertNotEquals(false, testManifest1.hasHazardousItems());
+    }
    
     
 }

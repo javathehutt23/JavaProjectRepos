@@ -93,9 +93,9 @@ public class BoxTest {
         System.out.println("getTotalWeight");
         assertEquals( 8, testBox1.getTotalWeight(), 0);
         assertEquals( 0, testBox2.getTotalWeight(), 0);
-        assertNotSame( 2, testBox2.getTotalWeight());
+        assertNotEquals( 2, testBox2.getTotalWeight());
         assertEquals( 44, testBox3.getTotalWeight(), 0);
-        assertNotSame( 43, testBox3.getTotalWeight());
+        assertNotEquals( 43, testBox3.getTotalWeight());
         assertEquals( 15, testBox4.getTotalWeight(), 0);
     }
  
@@ -127,9 +127,9 @@ public class BoxTest {
         System.out.println("Testing Remaining capacity in Box...");
         assertEquals( 12.0, testBox1.remainingCapacity(), 0);
         assertEquals(20.0, testBox2.remainingCapacity(), 0);
-        assertNotSame(0, testBox2.remainingCapacity());
+        assertNotEquals(0, testBox2.remainingCapacity());
         assertEquals(-24, testBox3.remainingCapacity(), 0);
-        assertNotSame(0, testBox3.remainingCapacity());
+        assertNotEquals(0, testBox3.remainingCapacity());
         assertEquals(5, testBox4.remainingCapacity(), 0);        
     }
     @Test
@@ -139,8 +139,8 @@ public class BoxTest {
         assertEquals(true, testBox2.isFragile());
         assertEquals(false, testBox3.isFragile());
         assertEquals(true, testBox4.isFragile());
-        assertNotSame(false, testBox4.isFragile());
-        assertNotSame(false, testBox1.isFragile());
+        assertNotEquals(false, testBox4.isFragile());
+        assertNotEquals(false, testBox1.isFragile());
             }
             
     @Test
@@ -150,8 +150,8 @@ public class BoxTest {
         assertEquals(true, testBox2.isHazardous());
         assertEquals(true, testBox3.isHazardous());
         assertEquals(false, testBox4.isHazardous());
-        assertNotSame(true, testBox4.isHazardous());
-        assertNotSame(false, testBox1.isHazardous());
+        assertNotEquals(true, testBox4.isHazardous());
+        assertNotEquals(false, testBox1.isHazardous());
 
     }
     @Test
@@ -161,8 +161,8 @@ public class BoxTest {
         assertEquals(false, testBox2.isHeavy());
         assertEquals(true, testBox3.isHeavy());
         assertEquals(true, testBox4.isHeavy());
-        assertNotSame(false, testBox4.isHeavy());
-        assertNotSame(true, testBox1.isHeavy());
+        assertNotEquals(false, testBox4.isHeavy());
+        assertNotEquals(true, testBox1.isHeavy());
 
     }
 
